@@ -39,10 +39,17 @@ def iniciar():
 def continuar():
     r = str(input('Presionar Y para continuar de lo contrario otra letra: '))
     if r == "Y":
-        os.system("cls")  # os.system("clear") fuera de windows
+        limpiar()
         return True
     else:
         return False
+
+
+def limpiar():
+    if os.name == "posix":
+        os.system("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        os.system("cls")
 
 
 while seguir:
