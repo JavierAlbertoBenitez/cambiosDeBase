@@ -1,1 +1,0 @@
-asenADec(n, b)
