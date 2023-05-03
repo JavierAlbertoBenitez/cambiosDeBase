@@ -1,6 +1,6 @@
 # cambios De Base
 
-el [programa](https://github.com/JavierAlbertoBenitez/cambiosDeBase) sirve para convertir cualquier número entero positivo de una base comprendida entre 2 a 16 a otra base comprendida en el mismo intervalo.
+el [programa](https://github.com/JavierAlbertoBenitez/cambiosDeBase/blob/main/conversor.py) sirve para convertir cualquier número entero positivo de una base comprendida entre 2 a 16 a otra base comprendida en el mismo intervalo.
 
 para esto primero solicita la base inicial y luego la partida para finalmente preguntar el numero que deseamos convertir, es cual es convertido a decimal como se observa en el primer código
 
