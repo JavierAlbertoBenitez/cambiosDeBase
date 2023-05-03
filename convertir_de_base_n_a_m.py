@@ -15,7 +15,7 @@ def basenADec(num, bas):
     x = 0
     num = num[::-1]
     for i in num:
-        if i in base[:9]:
+        if i in base[:10]:
             dec += int(i) * bas**x
         else:
             dec += letras[i]*bas**x
@@ -24,15 +24,21 @@ def basenADec(num, bas):
 
 
 def decABasen(num, bas):
-    bin = ''
-    while num // bas != 0:
-        aux = num % bas
-        if aux < 10:
-            bin = str(aux)+bin
+    con = ''
+    if num > 15:
+        while num // bas != 0:
+            aux = num % bas
+            if aux < 10:
+                con = str(aux)+con
+            else:
+                con = base2[str(aux)]+con
+            num //= bas
+        return str(num) + con
+    else:
+        if num < 10:
+            return num
         else:
-            bin = base[str(aux)]+bin
-        num //= bas
-    return str(num) + bin
+            return base2[str(num)]
 
 
 def iniciar():
