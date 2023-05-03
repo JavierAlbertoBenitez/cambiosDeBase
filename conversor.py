@@ -25,7 +25,7 @@ def basenADec(num, bas):
 
 def decABasen(num, bas):
     con = ''
-    if num > 15:
+    if bas < 10:
         while num // bas != 0:
             aux = num % bas
             if aux < 10:
@@ -35,10 +35,25 @@ def decABasen(num, bas):
             num //= bas
         return str(num) + con
     else:
-        if num < 10:
-            return num
+        return basesSuperiores(num, bas)
+
+
+def basesSuperiores(n, b):
+    con = ''
+    if n > 15:
+        while n // b != 0:
+            aux = n % b
+            if aux < 10:
+                con = str(aux)+con
+            else:
+                con = base2[str(aux)]+con
+            num //= b
+        return str(n) + con
+    else:
+        if n < 10:
+            return n
         else:
-            return base2[str(num)]
+            return base2[str(n)]
 
 
 def iniciar():
@@ -66,7 +81,7 @@ def convertir(b, c):
             if x not in base[:b]:
                 raise ValueError
             d = basenADec(n, b)
-        print(f"El número en base {c} es: {decABasen(d,c)}")
+        print(f"el número en base {c} es {decABasen(d,c)}")
     except (ValueError):
         print('Ingrese numeros validos para dicha base')
 
