@@ -10,52 +10,6 @@ base = ["0", "1", "2", "3", "4", "5", "6", "7",
 letras = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
 
 
-def basenADec(num, bas):
-    dec = 0
-    x = 0
-    num = num[::-1]
-    for i in num:
-        if i in base[:10]:
-            dec += int(i) * bas**x
-        else:
-            dec += letras[i]*bas**x
-        x += 1
-    return dec
-
-
-def decABasen(num, bas):
-    con = ''
-    if bas < 10:
-        while num // bas != 0:
-            aux = num % bas
-            if aux < 10:
-                con = str(aux)+con
-            else:
-                con = base2[str(aux)]+con
-            num //= bas
-        return str(num) + con
-    else:
-        return basesSuperiores(num, bas)
-
-
-def basesSuperiores(n, b):
-    con = ''
-    if n > 15:
-        while n // b != 0:
-            aux = n % b
-            if aux < 10:
-                con = str(aux)+con
-            else:
-                con = base2[str(aux)]+con
-            num //= b
-        return str(n) + con
-    else:
-        if n < 10:
-            return n
-        else:
-            return base2[str(n)]
-
-
 def iniciar():
     try:
         b = int(input("ingrese base inicial (2 a 16): "))
@@ -84,6 +38,34 @@ def convertir(b, c):
         print(f"el número en base {c} es {decABasen(d,c)}")
     except (ValueError):
         print('Ingrese numeros validos para dicha base')
+
+
+def basenADec(num, bas):
+    dec = 0
+    x = 0
+    num = num[::-1]
+    for i in num:
+        if i in base[:10]:
+            dec += int(i) * bas**x
+        else:
+            dec += letras[i]*bas**x
+        x += 1
+    return dec
+
+
+def decABasen(num, bas):
+    con = ''
+    if (bas > 10) and (num > 9 and num < bas):
+        return base2[str(num)]
+    else:
+        while num // bas != 0:
+            aux = num % bas
+            if aux < 10:
+                con = str(aux)+con
+            else:
+                con = base2[str(aux)]+con
+            num //= bas
+        return str(num) + con
 
 
 def continuar():
